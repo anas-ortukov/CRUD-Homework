@@ -5,6 +5,7 @@ import entity.Student;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class StudentRepo implements Repository<Student>{
     private static StudentRepo singleton;
@@ -45,6 +46,23 @@ public class StudentRepo implements Repository<Student>{
     @Override
     public List<Student> findAll() {
         return students;
+    }
+
+    @Override
+    public void update(Student student) {
+        if (student != null) {
+            Scanner scannerStr = new Scanner(System.in);
+            System.out.print("Enter new firstname : ");
+            student.setFirstName(scannerStr.nextLine());
+            System.out.print("Enter new lastname : ");
+            student.setLastName(scannerStr.nextLine());
+            System.out.println("Enter your age : ");
+            student.setAge(scannerStr.nextLine());
+            System.out.println("Enter your phone number : ");
+            student.setPhoneNumber(scannerStr.nextLine());
+
+            updateData();
+        }
     }
 
     private void updateData() {
