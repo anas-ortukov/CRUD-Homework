@@ -42,6 +42,11 @@ public class StudentRepo implements Repository<Student>{
         updateData();
     }
 
+    @Override
+    public List<Student> findAll() {
+        return students;
+    }
+
     private void updateData() {
         try(
                 OutputStream os = new FileOutputStream(PATH);
