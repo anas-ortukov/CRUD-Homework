@@ -65,6 +65,12 @@ public class StudentRepo implements Repository<Student>{
         }
     }
 
+    @Override
+    public void delete(Student student) {
+        students.remove(student);
+        updateData();
+    }
+
     private void updateData() {
         try(
                 OutputStream os = new FileOutputStream(PATH);
